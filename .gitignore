@@ -1,0 +1,30 @@
+logs/xvba_debug.log
+# --- Vivado Temporary & Log Files ---
+*.jou
+*.log
+*.str
+*.txt
+*.os
+*.obj
+.Xil/
+_x/
+
+# --- Project Specific Exclusions ---
+*.cache/
+*.hw/
+*.sim/
+*.runs/
+*.gen/                # <--- Bỏ qua file tự sinh
+*.ip_user_files/
+
+# --- Backup & Misc ---
+*.bak
+shm.db
+.metadata/
+
+# --- PYNQ/Jupyter Junk ---
+.ipynb_checkpoints/
+__pycache__/
+
+LedSwitch.cache
+LedSwitch.gen
