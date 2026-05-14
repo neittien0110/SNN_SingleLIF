@@ -22,9 +22,10 @@ _x/
 shm.db
 .metadata/
 
+SNN_SingleLIF.cache
+SNN_SingleLIF.gen
+
 # --- PYNQ/Jupyter Junk ---
 .ipynb_checkpoints/
 __pycache__/
 
-LedSwitch.cache
-LedSwitch.gen
