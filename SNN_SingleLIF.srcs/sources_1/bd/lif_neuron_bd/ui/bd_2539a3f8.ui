@@ -1,0 +1,33 @@
+{
+   "ActiveEmotionalView":"Default View",
+   "Default View_ScaleFactor":"1.0",
+   "Default View_TopLeft":"-58,0",
+   "ExpandedHierarchyInLayout":"",
+   "HierExpandStatus_comment_0":"false",
+   "HierExpandStatus_comment_1":"false",
+   "commentid":"",
+   "guistr":"# # String gsaved with Nlview 7.8.0 2024-04-26 e1825d835c VDI=44 GEI=38 GUI=JA:21.0 threadsafe
+#  -string -flagsOSRD
+preplace port port-id_rst -pg 1 -lvl 0 -x -40 -y 170 -defaultsOSRD
+preplace port port-id_clk -pg 1 -lvl 0 -x -40 -y 110 -defaultsOSRD
+preplace port port-id_spike_out -pg 1 -lvl 4 -x 900 -y 280 -defaultsOSRD
+preplace portBus input_spikes -pg 1 -lvl 0 -x -40 -y 230 -defaultsOSRD
+preplace portBus vmem -pg 1 -lvl 4 -x 900 -y 90 -defaultsOSRD
+preplace inst synapse_unit_0 -pg 1 -lvl 1 -x 170 -y 230 -defaultsOSRD
+preplace inst dff_0 -pg 1 -lvl 3 -x 800 -y 280 -defaultsOSRD
+preplace inst lif_controller_0 -pg 1 -lvl 2 -x 520 -y 230 -defaultsOSRD -resize 300 142
+preplace inst Vmem -pg 1 -lvl 1 -x 170 -y 90 -defaultsOSRD
+preplace netloc Vmem_q 1 1 3 340 90 N 90 N
+preplace netloc clk_1 1 0 3 -10 -10 NJ -10 720J
+preplace netloc dff_0_q 1 3 1 N 280
+preplace netloc input_spikes_1 1 0 1 NJ 230
+preplace netloc lif_controller_0_spike_now 1 2 1 N 260
+preplace netloc lif_controller_0_v_mem_next 1 0 3 0 0 NJ 0 690
+preplace netloc lif_controller_0_v_mem_reset 1 0 3 10 10 N 10 700
+preplace netloc srst_1 1 0 3 NJ 170 350 140 710J
+preplace netloc synapse_unit_0_total_energy 1 1 1 NJ 230
+levelinfo -pg 1 -40 170 520 800 900
+pagesize -pg 1 -db -bbox -sgen -220 -150 1030 410
+"
+}
+0

@@ -1,0 +1,91 @@
+{
+   "ActiveEmotionalView":"Default View",
+   "Addressing View_Layers":"/processing_system7_0_FCLK_CLK0:false|/clk_0_1:false|/rst_ps7_0_100M_peripheral_aresetn:false|/processing_system7_0_FCLK_RESET0_N:false|",
+   "Addressing View_ScaleFactor":"1.22631",
+   "Addressing View_TopLeft":"90,-33",
+   "Clocking and Reset View_Layers":"/processing_system7_0_FCLK_CLK0:true|/clk_0_1:true|/rst_ps7_0_100M_peripheral_aresetn:true|/processing_system7_0_FCLK_RESET0_N:true|",
+   "Clocking and Reset View_ScaleFactor":"0.623936",
+   "Clocking and Reset View_TopLeft":"-426,-37",
+   "Color Coded_ScaleFactor":"0.38512",
+   "Color Coded_TopLeft":"-693,3",
+   "Default View_Layers":"/processing_system7_0_FCLK_CLK0:true|/clk_0_1:true|/rst_ps7_0_100M_peripheral_aresetn:true|/processing_system7_0_FCLK_RESET0_N:true|",
+   "Default View_ScaleFactor":"1.0",
+   "Default View_TopLeft":"99,610",
+   "Display-IntfAXI3":"true",
+   "Display-IntfAXI4Lite":"true",
+   "Display-IntfOthers":"true",
+   "Display-PortTypeClock":"true",
+   "Display-PortTypeOthers":"true",
+   "Display-PortTypeReset":"true",
+   "ExpandedHierarchyInLayout":"",
+   "Grouping and No Loops_ScaleFactor":"0.354125",
+   "Grouping and No Loops_TopLeft":"-847,3",
+   "HierExpandStatus_comment_0":"false",
+   "HierExpandStatus_comment_1":"false",
+   "Interfaces View_Layers":"/processing_system7_0_FCLK_CLK0:false|/clk_0_1:false|/rst_ps7_0_100M_peripheral_aresetn:false|/processing_system7_0_FCLK_RESET0_N:false|",
+   "Interfaces View_ScaleFactor":"1.05389",
+   "Interfaces View_TopLeft":"-143,3",
+   "Interrupt and AXI-4 Lite_Layers":"/processing_system7_0_FCLK_CLK0:false|/clk_0_1:false|/rst_ps7_0_100M_peripheral_aresetn:false|/processing_system7_0_FCLK_RESET0_N:false|",
+   "Interrupt and AXI-4 Lite_ScaleFactor":"1.25",
+   "Interrupt and AXI-4 Lite_TopLeft":"78,-65",
+   "No Loops_ScaleFactor":"0.289951",
+   "No Loops_TopLeft":"-1197,3",
+   "PinnedBlocks":"/ilconcat_0|",
+   "Reduced Jogs_Layers":"/processing_system7_0_FCLK_CLK0:true|/clk_0_1:true|/rst_ps7_0_100M_peripheral_aresetn:true|/processing_system7_0_FCLK_RESET0_N:true|",
+   "Reduced Jogs_ScaleFactor":"0.285251",
+   "Reduced Jogs_TopLeft":"-1178,4",
+   "commentid":"",
+   "guistr":"# # String gsaved with Nlview 7.8.0 2024-04-26 e1825d835c VDI=44 GEI=38 GUI=JA:21.0
+#  -string -flagsOSRD
+preplace port DDR -pg 1 -lvl 8 -x 2560 -y 870 -defaultsOSRD
+preplace port FIXED_IO -pg 1 -lvl 8 -x 2560 -y 910 -defaultsOSRD
+preplace port port-id_srst_0 -pg 1 -lvl 0 -x -40 -y 700 -defaultsOSRD
+preplace port port-id_clk1hz -pg 1 -lvl 8 -x 2560 -y 690 -defaultsOSRD
+preplace port port-id_led0 -pg 1 -lvl 8 -x 2560 -y 770 -defaultsOSRD
+preplace port port-id_led1 -pg 1 -lvl 8 -x 2560 -y 800 -defaultsOSRD
+preplace port port-id_led2 -pg 1 -lvl 8 -x 2560 -y 830 -defaultsOSRD
+preplace port port-id_led3 -pg 1 -lvl 8 -x 2560 -y 1230 -defaultsOSRD
+preplace portBus buttons -pg 1 -lvl 0 -x -40 -y 930 -defaultsOSRD
+preplace inst clock_div_1m_0 -pg 1 -lvl 1 -x 310 -y 690 -defaultsOSRD
+preplace inst button_cached_0 -pg 1 -lvl 2 -x 570 -y 770 -defaultsOSRD
+preplace inst button_cached_1 -pg 1 -lvl 2 -x 570 -y 910 -defaultsOSRD
+preplace inst button_cached_2 -pg 1 -lvl 2 -x 570 -y 1050 -defaultsOSRD
+preplace inst button_cached_3 -pg 1 -lvl 2 -x 570 -y 1190 -defaultsOSRD
+preplace inst ilconcat_0 -pg 1 -lvl 3 -x 810 -y 930 -defaultsOSRD
+preplace inst axi_gpio_0 -pg 1 -lvl 5 -x 1500 -y 970 -defaultsOSRD -orient R180
+preplace inst processing_system7_0 -pg 1 -lvl 7 -x 2330 -y 930 -defaultsOSRD
+preplace inst axi_smc -pg 1 -lvl 6 -x 1940 -y 930 -defaultsOSRD
+preplace inst rst_ps7_0_100M -pg 1 -lvl 6 -x 1940 -y 1120 -defaultsOSRD
+preplace inst bus_splitter_4_0 -pg 1 -lvl 1 -x 310 -y 930 -defaultsOSRD -resize 181 194
+preplace inst lif_neuron_0 -pg 1 -lvl 4 -x 1100 -y 940 -defaultsOSRD
+preplace netloc Net 1 0 4 190 620 NJ 620 NJ 620 910
+preplace netloc bus_splitter_4_0_out0 1 1 1 480 790n
+preplace netloc bus_splitter_4_0_out1 1 1 1 430 910n
+preplace netloc bus_splitter_4_0_out2 1 1 1 440 940n
+preplace netloc bus_splitter_4_0_out3 1 1 1 430 980n
+preplace netloc button_cached_0_q 1 2 6 710J 770 N 770 N 770 N 770 N 770 N
+preplace netloc button_cached_1_q 1 2 6 720J 790 N 790 N 790 N 790 N 790 2540
+preplace netloc button_cached_2_q 1 2 6 700J 810 N 810 N 810 N 810 N 810 2540
+preplace netloc button_cached_3_q 1 2 6 710J 1230 N 1230 N 1230 N 1230 N 1230 N
+preplace netloc buttons_1 1 0 1 N 930
+preplace netloc clk_0_1 1 0 8 200 760 470 1280 N 1280 N 1280 N 1280 N 1280 N 1280 2540
+preplace netloc clk_master 1 1 7 460 1270 720 1020 950J 690 N 690 N 690 N 690 N
+preplace netloc ilconcat_0_dout 1 3 1 900 930n
+preplace netloc lif_neuron_0_spike_out 1 4 1 1250 930n
+preplace netloc lif_neuron_0_vmem_out 1 4 1 1250 950n
+preplace netloc processing_system7_0_FCLK_CLK0 1 5 3 1770 1020 2140 1050 2530
+preplace netloc processing_system7_0_FCLK_RESET0_N 1 5 3 1770 1220 N 1220 2520
+preplace netloc rst_ps7_0_100M_peripheral_aresetn 1 5 2 1760 850 2120
+preplace netloc axi_smc_M00_AXI 1 5 2 1630 1010 2110
+preplace netloc processing_system7_0_DDR 1 7 1 N 870
+preplace netloc processing_system7_0_FIXED_IO 1 7 1 2540 890n
+preplace netloc processing_system7_0_M_AXI_GP0 1 5 3 1770 800 N 800 2520
+levelinfo -pg 1 -40 310 570 810 1100 1500 1940 2330 2560
+pagesize -pg 1 -db -bbox -sgen -180 -30 2670 1460
+"
+}
+{
+   "da_axi4_cnt":"1",
+   "da_board_cnt":"1",
+   "da_ps7_cnt":"1"
+}

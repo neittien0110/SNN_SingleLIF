@@ -14,13 +14,28 @@
 
 Viết [code Verilog trực tiếp](./SNN_SingleLIF.srcs/sources_1/new/lif_neuron.v)
 
-## Thiết kế trực quan bằng Block Diagram
+## Thiết kế trực quan LIF bằng Block Diagram
+
+**Lưu ý**: sau khi sửa file Block Diagram, bắt buộc phải chạy lại **Generate Output Products**. Còn chức năng **Create HDL Wrapper** thì chỉ cần chạy lần đầu tiên sau khi thiết kế xong Block Diagram
+![Generate Output Products](images/Generate_Output_Products.png)
 
 - Thiết kế chính bằng Block Diagram.
 ![Single Neuron LIF in Block Diagram](images/lif_neuron_bd.png)
-- Module [**synapse_unit**](./SNN_SingleLIF.srcs/sources_1/new/synapse_unit.v) thể hiện việc tính tổng tích lũy các spike đầu vào và trọng số tương ứng
+- Module [**synapse_unit**](#synapse_unit) thể hiện việc tính tổng tích lũy các spike đầu vào và trọng số tương ứng
 - Module [**V_mem**](./SNN_SingleLIF.srcs/sources_1/new/register.v) chỉ là một thành ghi vào/ra song song, với tham số độ rộng bus **Width=16**.
 - Module [**dff_0**](./SNN_SingleLIF.srcs/sources_1/new/dff.v) chỉ là một Flip Flop D để chốt xung **Spike** đầu ra, triệt tiêu hazard.
+
+Khi sử dụng công cụ **RTL Analysis** trong thanh **Flow Navigation**, 
+![Single Neuron LIF in RTL Analysis](./images/lif_neuron_rtl.png)
+
+## synapse_unit
+
+Các khớp thần kinh nối. [**Mã nguồn Verilog**](./SNN_SingleLIF.srcs/sources_1/new/synapse_unit.v).
+
+![synapse in RTL Analysis](./synapse_unit_arch_fast.png)
+
+[Back to parent design](#thiết-kế-trực-quan-lif-bằng-block-diagram)
+
 
 ## Thiết kế System Test
 
@@ -41,6 +56,11 @@ Viết [code Verilog trực tiếp](./SNN_SingleLIF.srcs/sources_1/new/lif_neuro
    Đặt tên SoftIP là **decoder_2to4.v**
 - Tích hợp **decoder_2to4.v** vào design chung trong **Block Design** bằng tính năng **Add Module**.
 - Gán **chân pin mềm của SoftIP top design** với **chân pin cứng cùa FPGA** bằng cách chạy **Run Systhesis** và mở cửa sổ **Top menu / Layout / IO Planning**.
+
+### Triển khai trên board
+
+- Trong thanh **Flow Navigator**, thực hiện **Implementation**. ![Click Implementation](./images/ClickImplementation.png)
+
 
 Board Parts | FPGA Pin | My Design
 --: | :--: | :--

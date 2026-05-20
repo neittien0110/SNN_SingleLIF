@@ -1,0 +1,234 @@
+{
+  "design": {
+    "design_info": {
+      "boundary_crc": "0xFBF2EDEEFBF2EDEE",
+      "device": "xc7z020clg400-1",
+      "gen_directory": "../../../../SNN_SingleLIF.gen/sources_1/bd/lif_neuron_bd",
+      "name": "lif_neuron_bd",
+      "rev_ctrl_bd_flag": "RevCtrlBdOff",
+      "synth_flow_mode": "Hierarchical",
+      "tool_version": "2025.2"
+    },
+    "design_tree": {
+      "synapse_unit_0": "",
+      "dff_0": "",
+      "lif_controller_0": "",
+      "Vmem": ""
+    },
+    "ports": {
+      "input_spikes": {
+        "direction": "I",
+        "left": "3",
+        "right": "0"
+      },
+      "rst": {
+        "direction": "I"
+      },
+      "clk": {
+        "direction": "I"
+      },
+      "spike_out": {
+        "direction": "O"
+      },
+      "vmem": {
+        "type": "data",
+        "direction": "O",
+        "left": "15",
+        "right": "0"
+      }
+    },
+    "components": {
+      "synapse_unit_0": {
+        "vlnv": "xilinx.com:module_ref:synapse_unit:1.0",
+        "ip_revision": "1",
+        "xci_name": "lif_neuron_bd_synapse_unit_0_0",
+        "xci_path": "ip\\lif_neuron_bd_synapse_unit_0_0\\lif_neuron_bd_synapse_unit_0_0.xci",
+        "inst_hier_path": "synapse_unit_0",
+        "has_run_ip_tcl": "true",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "synapse_unit",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "input_spikes": {
+            "direction": "I",
+            "left": "3",
+            "right": "0"
+          },
+          "total_energy": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          }
+        }
+      },
+      "dff_0": {
+        "vlnv": "xilinx.com:module_ref:dff:1.0",
+        "ip_revision": "1",
+        "xci_name": "lif_neuron_bd_dff_0_0",
+        "xci_path": "ip\\lif_neuron_bd_dff_0_0\\lif_neuron_bd_dff_0_0.xci",
+        "inst_hier_path": "dff_0",
+        "has_run_ip_tcl": "true",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "dff",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "d": {
+            "direction": "I"
+          },
+          "q": {
+            "direction": "O"
+          },
+          "srst": {
+            "direction": "I"
+          },
+          "clk": {
+            "type": "clk",
+            "direction": "I"
+          }
+        }
+      },
+      "lif_controller_0": {
+        "vlnv": "xilinx.com:module_ref:lif_controller:1.0",
+        "ip_revision": "1",
+        "xci_name": "lif_neuron_bd_lif_controller_0_0",
+        "xci_path": "ip\\lif_neuron_bd_lif_controller_0_0\\lif_neuron_bd_lif_controller_0_0.xci",
+        "inst_hier_path": "lif_controller_0",
+        "has_run_ip_tcl": "true",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "lif_controller",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "v_mem_current": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "incoming_energy": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "rst": {
+            "type": "rst",
+            "direction": "I"
+          },
+          "v_mem_next": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          },
+          "v_mem_reset": {
+            "type": "rst",
+            "direction": "O"
+          },
+          "reach_threshold": {
+            "direction": "O"
+          }
+        }
+      },
+      "Vmem": {
+        "vlnv": "xilinx.com:module_ref:register:1.0",
+        "ip_revision": "1",
+        "xci_name": "lif_neuron_bd_register_0_0",
+        "xci_path": "ip\\lif_neuron_bd_register_0_0\\lif_neuron_bd_register_0_0.xci",
+        "inst_hier_path": "Vmem",
+        "has_run_ip_tcl": "true",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "register",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "d": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "q": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          },
+          "srst": {
+            "direction": "I",
+            "parameters": {
+              "POLARITY": {
+                "value": "ACTIVE_LOW",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "clk": {
+            "type": "clk",
+            "direction": "I"
+          }
+        }
+      }
+    },
+    "nets": {
+      "Vmem_q": {
+        "ports": [
+          "Vmem/q",
+          "vmem",
+          "lif_controller_0/v_mem_current"
+        ]
+      },
+      "clk_1": {
+        "ports": [
+          "clk",
+          "dff_0/clk",
+          "Vmem/clk"
+        ]
+      },
+      "dff_0_q": {
+        "ports": [
+          "dff_0/q",
+          "spike_out"
+        ]
+      },
+      "input_spikes_1": {
+        "ports": [
+          "input_spikes",
+          "synapse_unit_0/input_spikes"
+        ]
+      },
+      "lif_controller_0_spike_now": {
+        "ports": [
+          "lif_controller_0/reach_threshold",
+          "dff_0/d"
+        ]
+      },
+      "lif_controller_0_v_mem_next": {
+        "ports": [
+          "lif_controller_0/v_mem_next",
+          "Vmem/d"
+        ]
+      },
+      "lif_controller_0_v_mem_reset": {
+        "ports": [
+          "lif_controller_0/v_mem_reset",
+          "Vmem/srst"
+        ]
+      },
+      "srst_1": {
+        "ports": [
+          "rst",
+          "dff_0/srst",
+          "lif_controller_0/rst"
+        ]
+      },
+      "synapse_unit_0_total_energy": {
+        "ports": [
+          "synapse_unit_0/total_energy",
+          "lif_controller_0/incoming_energy"
+        ]
+      }
+    }
+  }
+}

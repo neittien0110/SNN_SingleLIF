@@ -6,6 +6,7 @@ logs/xvba_debug.log
 *.txt
 *.os
 *.obj
+*.dcp
 .Xil/
 _x/
 
@@ -28,4 +29,3 @@ SNN_SingleLIF.gen
 # --- PYNQ/Jupyter Junk ---
 .ipynb_checkpoints/
 __pycache__/
-

@@ -9,6 +9,10 @@ PYNQ_IP = "192.168.2.99"
 PYNQ_USER = "xilinx"
 PYNQ_PASS = "xilinx"
 PYNQ_BASE_DIR = "/home/xilinx"  # Các file bit và hwh sẽ được đẩy lên thư mục con trùng tên dự án, trong thư mục này
+
+# ==== Các file nạp =====
+BIT_FILE= "system_integration_bd_wrapper.bit"  # file cấu hình FPGA.
+HW_FOLDER = "system_integration_bd"            # từ điển địa chỉ, là driver để phần ARM core có thể hiểu địa chỉ kiểm soát module SoftIP.
 # =============================
 
 def get_file_info(file_path):
@@ -33,23 +37,30 @@ def collect_and_upload():
     print("-" * 45)
 
     # Đường dẫn file nguồn trong cấu trúc Vivado
-    bit_src = current_dir / f"{project_name}.runs" / "impl_1" / "mainsystem_wrapper.bit"
-    hwh_src = current_dir / f"{project_name}.gen" / "sources_1" / "bd" / "mainsystem" / "hw_handoff" / "mainsystem.hwh"
+    bit_src = current_dir / f"{project_name}.runs" / "impl_1" / f"{BIT_FILE}" 
+    hwh_src = current_dir / f"{project_name}.gen" / "sources_1" / "bd" / f"{HW_FOLDER}" / "hw_handoff" / f"{HW_FOLDER}.hwh"
 
     # Kiểm tra file nguồn
     files_to_check = [("BIT", bit_src), ("HWH", hwh_src)]
-    all_exists = True
+
+    # Danh sách mới để lưu các file thực sự tồn tại và sẵn sàng để copy
+    valid_files_to_copy = []
 
     for label, path in files_to_check:
         if path.exists():
             m_date, diff = get_file_info(path)
             print(f"📝 {label} found: {m_date} ({diff})")
+            
+            # Nếu file tồn tại, thêm vào danh sách hợp lệ để copy tiếp
+            valid_files_to_copy.append((label, path))
         else:
-            print(f"❌ {label} NOT FOUND at: {path}")
-            all_exists = False
+            # Nếu không tìm thấy, chỉ in cảnh báo chứ KHÔNG làm dừng chương trình
+            print(f"⚠️ {label} NOT FOUND at: {path} (Đã bỏ qua)")
 
-    if not all_exists:
-        print("\n⚠️ Dừng lại! Vui lòng kiểm tra lại quá trình Generate Bitstream.")
+    # Kiểm tra xem có file nào hợp lệ để copy không
+    if not valid_files_to_copy:
+        print("\n❌ Không tìm thấy bất kỳ file nào hợp lệ (Cả .bit và .hwh đều thiếu)!")
+        print("⚠️ Vui lòng kiểm tra lại quá trình Generate Bitstream trong Vivado.")
         input("\nBấm phím bất kì để kết thúc...")
         return
 

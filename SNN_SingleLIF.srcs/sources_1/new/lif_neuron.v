@@ -16,10 +16,10 @@ module lif_neuron_ #(
     parameter W3 = 8'd17
 )(
     input  wire                 clk,          // Clock hệ thống
-    input  wire                 rst,          // Reset đồng bộ, mức cao
     input  wire [3:0]           input_spikes, // 4 kênh xung vào
-    output wire [VMEM_WIDTH-1:0] vmem_out,    // Giá trị trong bộ đếm xung neuron
-    output reg                  spike_out     // Xung phát ra
+    input  wire                 rst,          // Reset đồng bộ, mức cao    
+    output reg                  spike_out,    // Xung phát ra
+    output wire [VMEM_WIDTH-1:0] vmem_out     // Giá trị trong bộ đếm xung neuron
 );
 
     // Tín hiệu nội bộ
@@ -28,9 +28,8 @@ module lif_neuron_ #(
     wire [VMEM_WIDTH-1:0] v_mem_incoming_leak;
     reg  [VMEM_WIDTH-1:0] v_mem;
     /* ĐIện thế màng đã vượt ngưỡng*/
-    wire IsOverThreshold;
+    wire reach_threshold;
     /* ĐIện thế màng vẫn lớn hơn rò rỉ*/
-    wire IsEnough;
     wire Vmem_Reset;
 
     // --- INSTANTIATION: Kết nối khối tính năng lượng ---
@@ -47,22 +46,21 @@ module lif_neuron_ #(
     assign  v_mem_incoming = v_mem + incoming_energy;
 
     ///< Điện thế màng đã năng lượng vào và tính rò rì
-    assign  v_mem_incoming_leak = v_mem_incoming - LEAK;
+    assign  v_mem_incoming_leak = (v_mem_incoming > LEAK) ?
+                                  (v_mem_incoming - LEAK): {VMEM_WIDTH{1'b0}}  ;
 
     ///< Điện thế màng có vượt ngưỡng không
-    assign  IsOverThreshold = v_mem_incoming_leak >= THRESHOLD;
-    ///< Điện thế màng có bị chảy hết ra ngoài không
-    assign  IsEnough = v_mem_incoming > LEAK;
-
-    ///< Gán lại điện thế màng về 0 khi Vượt ngượng, hoặc Rò rỉ toàn bộ, hoặc có Tín hiệu reset
-    assign Vmem_Reset = (rst) || (IsOverThreshold) || (!IsEnough);
-    
+    ///< Fixed-bug: nếu viét code v_mem_incoming - LEAK >= THRESHOLD thì sai,
+    ///             vì v_mem_incoming - LEAK có thể tràn số nên kết quả là số rất lớn nên sẽ hơn THRESHOLD
+    ///             Cẩn bảo đảm bộ so sánh sẽ được dùng, chứ không phải bộ trừ.
+    assign  reach_threshold = (v_mem_incoming_leak >= THRESHOLD);
+   
     // --- Gán giá trị nội bộ ra cổng output ---
     assign vmem_out = v_mem;
     
     // --- SEQUENTIAL LOGIC: Cập nhật Vmem (Reset Đồng Bộ) ---
     always @(posedge clk) begin
-        if (Vmem_Reset) begin
+        if ((rst) || (reach_threshold)) begin
             v_mem     <= {VMEM_WIDTH{1'b0}};
         end else begin
             v_mem <= v_mem_incoming_leak;
@@ -74,7 +72,7 @@ module lif_neuron_ #(
         if (rst) begin
                 spike_out <= 1'b0;
         end else begin    
-            spike_out <= IsOverThreshold;
+            spike_out <= reach_threshold;
         end
     end
 
