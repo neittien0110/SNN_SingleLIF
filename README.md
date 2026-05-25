@@ -36,6 +36,8 @@
   - Thiết kế [trực quan bằng Block Diagram](#thiết-kế-trực-quan-lif-bằng-block-diagram)
 - Tạo system test để kiểm thử bằng các phím bấm và xem số liệu trên UART.  
 
+![project demo](images/demo.png)
+
 ## Cơ sở lý thuyết
 
 ### Mô hình Toán học và Sinh học của Neuron LIF
