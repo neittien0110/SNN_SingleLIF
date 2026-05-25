@@ -18,7 +18,7 @@ module tb_lif_neuron();
     wire [VMEM_WIDTH-1:0]   vmem_out;
 
     // 3. Khởi tạo Module cần test (UUT - Unit Under Test hoặc DUT - Device Under Test)
-    lif_neuron_ #(
+    lif_neuron_bd_wrapper #(
         .VMEM_WIDTH(VMEM_WIDTH),
         .THRESHOLD(THRESHOLD),
         .LEAK(LEAK)
