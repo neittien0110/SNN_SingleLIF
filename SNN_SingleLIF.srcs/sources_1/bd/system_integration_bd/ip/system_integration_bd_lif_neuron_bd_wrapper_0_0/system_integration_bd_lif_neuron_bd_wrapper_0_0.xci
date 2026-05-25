@@ -1,30 +1,14 @@
 {
   "schema": "xilinx.com:schema:json_instance:1.0",
   "ip_inst": {
-    "xci_name": "system_integration_bd_lif_neuron_0_0",
-    "cell_name": "lif_neuron_0",
-    "component_reference": "xilinx.com:module_ref:lif_neuron_:1.0",
+    "xci_name": "system_integration_bd_lif_neuron_bd_wrapper_0_0",
+    "cell_name": "lif_neuron_bd_wrapper_0",
+    "component_reference": "xilinx.com:module_ref:lif_neuron_bd_wrapper:1.0",
     "ip_revision": "1",
-    "gen_directory": "../../../../../../SNN_SingleLIF.gen/sources_1/bd/system_integration_bd/ip/system_integration_bd_lif_neuron_0_0",
+    "gen_directory": "../../../../../../SNN_SingleLIF.gen/sources_1/bd/system_integration_bd/ip/system_integration_bd_lif_neuron_bd_wrapper_0_0",
     "parameters": {
       "component_parameters": {
-        "VMEM_WIDTH": [ { "value": "16", "resolve_type": "user", "format": "long", "usage": "all" } ],
-        "THRESHOLD": [ { "value": "0x0064", "resolve_type": "user", "format": "bitString", "usage": "all" } ],
-        "LEAK": [ { "value": "0x000A", "resolve_type": "user", "format": "bitString", "usage": "all" } ],
-        "W0": [ { "value": "\"00011000\"", "resolve_type": "user", "format": "bitString", "usage": "all" } ],
-        "W1": [ { "value": "\"00010100\"", "resolve_type": "user", "format": "bitString", "usage": "all" } ],
-        "W2": [ { "value": "\"00001110\"", "resolve_type": "user", "format": "bitString", "usage": "all" } ],
-        "W3": [ { "value": "\"00010001\"", "resolve_type": "user", "format": "bitString", "usage": "all" } ],
-        "Component_Name": [ { "value": "system_integration_bd_lif_neuron_0_0", "resolve_type": "user", "usage": "all" } ]
-      },
-      "model_parameters": {
-        "VMEM_WIDTH": [ { "value": "16", "resolve_type": "generated", "format": "long", "usage": "all" } ],
-        "THRESHOLD": [ { "value": "0x0064", "resolve_type": "generated", "format": "bitString", "usage": "all" } ],
-        "LEAK": [ { "value": "0x000A", "resolve_type": "generated", "format": "bitString", "usage": "all" } ],
-        "W0": [ { "value": "\"00011000\"", "resolve_type": "generated", "format": "bitString", "usage": "all" } ],
-        "W1": [ { "value": "\"00010100\"", "resolve_type": "generated", "format": "bitString", "usage": "all" } ],
-        "W2": [ { "value": "\"00001110\"", "resolve_type": "generated", "format": "bitString", "usage": "all" } ],
-        "W3": [ { "value": "\"00010001\"", "resolve_type": "generated", "format": "bitString", "usage": "all" } ]
+        "Component_Name": [ { "value": "system_integration_bd_lif_neuron_bd_wrapper_0_0", "resolve_type": "user", "usage": "all" } ]
       },
       "project_parameters": {
         "ARCHITECTURE": [ { "value": "zynq", "resolve_type": "generated", "usage": "all" } ],
@@ -43,7 +27,7 @@
         "IPCONTEXT": [ { "value": "IP_Integrator" } ],
         "IPREVISION": [ { "value": "1" } ],
         "MANAGED": [ { "value": "TRUE" } ],
-        "OUTPUTDIR": [ { "value": "../../../../../../SNN_SingleLIF.gen/sources_1/bd/system_integration_bd/ip/system_integration_bd_lif_neuron_0_0" } ],
+        "OUTPUTDIR": [ { "value": "../../../../../../SNN_SingleLIF.gen/sources_1/bd/system_integration_bd/ip/system_integration_bd_lif_neuron_bd_wrapper_0_0" } ],
         "SELECTEDSIMMODEL": [ { "value": "" } ],
         "SHAREDDIR": [ { "value": "../../ipshared" } ],
         "SWVERSION": [ { "value": "2025.2" } ],
@@ -56,7 +40,7 @@
         "input_spikes": [ { "direction": "in", "size_left": "3", "size_right": "0" } ],
         "rst": [ { "direction": "in" } ],
         "spike_out": [ { "direction": "out" } ],
-        "vmem_out": [ { "direction": "out", "size_left": "15", "size_right": "0" } ]
+        "vmem": [ { "direction": "out", "size_left": "15", "size_right": "0" } ]
       },
       "interfaces": {
         "rst": {
@@ -92,5 +76,5 @@
       }
     }
   },
-  "checksum": "596ac605"
+  "checksum": "b79d2358"
 }

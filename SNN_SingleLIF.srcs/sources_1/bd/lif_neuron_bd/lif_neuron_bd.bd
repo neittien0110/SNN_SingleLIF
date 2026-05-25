@@ -1,13 +1,14 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0xFBF2EDEEFBF2EDEE",
+      "boundary_crc": "0xFBF2EDEE72D874BF",
       "device": "xc7z020clg400-1",
       "gen_directory": "../../../../SNN_SingleLIF.gen/sources_1/bd/lif_neuron_bd",
       "name": "lif_neuron_bd",
       "rev_ctrl_bd_flag": "RevCtrlBdOff",
       "synth_flow_mode": "Hierarchical",
-      "tool_version": "2025.2"
+      "tool_version": "2025.2",
+      "validated": "true"
     },
     "design_tree": {
       "synapse_unit_0": "",
@@ -34,7 +35,13 @@
         "type": "data",
         "direction": "O",
         "left": "15",
-        "right": "0"
+        "right": "0",
+        "parameters": {
+          "LAYERED_METADATA": {
+            "value": "undef",
+            "value_src": "default"
+          }
+        }
       }
     },
     "components": {

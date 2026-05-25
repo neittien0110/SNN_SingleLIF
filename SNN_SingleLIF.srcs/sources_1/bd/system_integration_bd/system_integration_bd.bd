@@ -22,7 +22,7 @@
       "axi_smc": "",
       "rst_ps7_0_100M": "",
       "bus_splitter_4_0": "",
-      "lif_neuron_0": ""
+      "lif_neuron_bd_wrapper_0": ""
     },
     "interface_ports": {
       "DDR": {
@@ -2343,16 +2343,16 @@
           }
         }
       },
-      "lif_neuron_0": {
-        "vlnv": "xilinx.com:module_ref:lif_neuron_:1.0",
+      "lif_neuron_bd_wrapper_0": {
+        "vlnv": "xilinx.com:module_ref:lif_neuron_bd_wrapper:1.0",
         "ip_revision": "1",
-        "xci_name": "system_integration_bd_lif_neuron_0_0",
-        "xci_path": "ip\\system_integration_bd_lif_neuron_0_0\\system_integration_bd_lif_neuron_0_0.xci",
-        "inst_hier_path": "lif_neuron_0",
+        "xci_name": "system_integration_bd_lif_neuron_bd_wrapper_0_0",
+        "xci_path": "ip\\system_integration_bd_lif_neuron_bd_wrapper_0_0\\system_integration_bd_lif_neuron_bd_wrapper_0_0.xci",
+        "inst_hier_path": "lif_neuron_bd_wrapper_0",
         "has_run_ip_tcl": "true",
         "reference_info": {
           "ref_type": "hdl",
-          "ref_name": "lif_neuron_",
+          "ref_name": "lif_neuron_bd_wrapper",
           "boundary_crc": "0x0"
         },
         "ports": {
@@ -2389,7 +2389,7 @@
           "spike_out": {
             "direction": "O"
           },
-          "vmem_out": {
+          "vmem": {
             "direction": "O",
             "left": "15",
             "right": "0"
@@ -2428,7 +2428,7 @@
         "ports": [
           "srst_0",
           "clock_div_1m_0/reset",
-          "lif_neuron_0/rst"
+          "lif_neuron_bd_wrapper_0/rst"
         ]
       },
       "bus_splitter_4_0_out0": {
@@ -2507,24 +2507,24 @@
           "button_cached_1/rst",
           "button_cached_2/rst",
           "button_cached_0/rst",
-          "lif_neuron_0/clk"
+          "lif_neuron_bd_wrapper_0/clk"
         ]
       },
       "ilconcat_0_dout": {
         "ports": [
           "ilconcat_0/dout",
-          "lif_neuron_0/input_spikes"
+          "lif_neuron_bd_wrapper_0/input_spikes"
         ]
       },
-      "lif_neuron_0_spike_out": {
+      "lif_neuron_bd_wrapper_0_spike_out": {
         "ports": [
-          "lif_neuron_0/spike_out",
+          "lif_neuron_bd_wrapper_0/spike_out",
           "axi_gpio_0/gpio2_io_i"
         ]
       },
-      "lif_neuron_0_vmem_out": {
+      "lif_neuron_bd_wrapper_0_vmem": {
         "ports": [
-          "lif_neuron_0/vmem_out",
+          "lif_neuron_bd_wrapper_0/vmem",
           "axi_gpio_0/gpio_io_i"
         ]
       },
